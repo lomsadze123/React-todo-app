@@ -18,8 +18,9 @@ function App() {
 export default App;
 
 const Body = styled.div`
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 4rem 0 0 0;
+  padding: 12rem 0 0 0;
   background: #fafafa url(${light}) no-repeat top center;
 `;
