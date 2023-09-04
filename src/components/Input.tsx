@@ -2,23 +2,24 @@ import { styled } from "styled-components";
 import check from "../assets/check.svg";
 import TodoInfo from "./TodoInfo";
 import Todo from "./Todo";
-import FilterTodo from "./FilterTodo";
 import { useState } from "react";
 
 export const Input = () => {
-  const [value, setValue] = useState<string[]>([]);
+  const [value, setValue] = useState<{ val: string; checked: boolean }[]>([]);
   const [todo, setTodo] = useState<string>("");
 
   const handleValue = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setValue([...value, todo]);
+    if (todo !== "") {
+      setValue([{ val: todo, checked: false }, ...value]);
+    }
     setTodo("");
   };
 
   return (
     <Form>
       <form onSubmit={handleValue}>
-        <input type="checkbox" />
+        <input type="checkbox" disabled />
         <input
           onChange={(e) => setTodo(e.target.value)}
           value={todo}
@@ -27,10 +28,8 @@ export const Input = () => {
         />
       </form>
       <article>
-        <Todo value={value} />
-        <TodoInfo>
-          <FilterTodo />
-        </TodoInfo>
+        <Todo value={value} setValue={setValue} />
+        <TodoInfo />
       </article>
     </Form>
   );

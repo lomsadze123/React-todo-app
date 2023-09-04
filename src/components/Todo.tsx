@@ -1,34 +1,62 @@
 import { styled } from "styled-components";
 import cross from "../assets/cross.svg";
-import { useState } from "react";
+import FilterTodo from "./FilterTodo";
 
-export const Todo = ({ value }: { value: string[] }) => {
-  const [check, setCheck] = useState<boolean[]>(value.map(() => false));
-  const [remove, setRemove] = useState(value);
+export interface TodoType {
+  value: {
+    val: string;
+    checked: boolean;
+  }[];
+  setValue: (
+    value: React.SetStateAction<
+      {
+        val: string;
+        checked: boolean;
+      }[]
+    >
+  ) => void;
+}
 
+const Todo = ({ value, setValue }: TodoType) => {
   const handleFilter = (index: number) => {
-    setRemove(value);
-    setRemove(remove.filter((rem, i) => i !== index));
+    setValue(value.filter((_, i) => i !== index));
   };
 
   const handleCheck = (index: number) => {
-    const newCheck = [...check];
-    newCheck[index] = !newCheck[index];
-    setCheck(newCheck);
+    const updatedValue = [...value];
+    updatedValue[index].checked = !updatedValue[index].checked;
+    setValue(updatedValue);
   };
 
-  return value.map((val, index) => (
-    <Div key={index}>
-      <div>
-        <input onClick={() => handleCheck(index)} type="checkbox" />
-        <P about={check[index]}>{val}</P>
-      </div>
-      <img onClick={() => handleFilter(index)} src={cross} alt="cross icon" />
-    </Div>
-  ));
+  return (
+    <Relative>
+      {value.map((item, index) => (
+        <Div key={index}>
+          <div>
+            <input
+              onClick={() => handleCheck(index)}
+              checked={item.checked}
+              type="checkbox"
+            />
+            <P about={item.checked}>{item.val}</P>
+          </div>
+          <img
+            onClick={() => handleFilter(index)}
+            src={cross}
+            alt="cross icon"
+          />
+        </Div>
+      ))}
+      <FilterTodo value={value} setValue={setValue} />
+    </Relative>
+  );
 };
 
 export default Todo;
+
+const Relative = styled.div`
+  position: relative;
+`;
 
 const Div = styled.div`
   background-color: #fff;

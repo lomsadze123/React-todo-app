@@ -1,14 +1,9 @@
 import { styled } from "styled-components";
 
-interface Children {
-  children: JSX.Element;
-}
-
-export const TodoInfo = ({ children }: Children) => {
+export const TodoInfo = () => {
   return (
     <Div>
       <h3>5 items left</h3>
-      {children}
       <button>Clear Completed</button>
     </Div>
   );
@@ -17,7 +12,6 @@ export const TodoInfo = ({ children }: Children) => {
 export default TodoInfo;
 
 const Div = styled.div`
-  position: relative;
   display: flex;
   justify-content: space-between;
   background-color: #fff;
