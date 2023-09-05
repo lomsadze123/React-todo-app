@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     font-weight: 700;
   }
-  h3, p , button {
+  h3, p , button , h4 {
     font-weight: 400;
   }
 `
