@@ -42,7 +42,7 @@ export const Input = ({ mode }: { mode: string }) => {
           setValue2={setValue2}
         />
       </Article>
-      <H4 about={mode === "dark"}>Drag and drop to reorder list</H4>
+      {/* <H4 about={mode === "dark"}>Drag and drop to reorder list</H4> */}
     </Form>
   );
 };
@@ -62,9 +62,9 @@ const InputTag = styled.input<{ about: boolean }>`
   background-color: ${(props) => (props.about ? "#25273D" : "white")};
   color: ${(props) => (props.about ? "#C8CBE7" : "#393A4B")};
 `;
-const H4 = styled.h4<{ about: boolean }>`
-  color: ${(props) => (props.about ? "#5B5E7E" : "#9495a5")};
-`;
+// const H4 = styled.h4<{ about: boolean }>`
+//   color: ${(props) => (props.about ? "#5B5E7E" : "#9495a5")};
+// `;
 export const FormInput = styled.input<{ backgroundColor: boolean }>`
   border: ${(props) =>
     props.backgroundColor ? ".1rem solid #393A4B" : ""} !important;

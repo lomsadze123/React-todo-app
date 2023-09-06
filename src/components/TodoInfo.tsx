@@ -6,7 +6,31 @@ interface InfoTypes {
     val: string;
     checked: boolean;
   }[];
+  value1: {
+    val: string;
+    checked: boolean;
+  }[];
+  value2: {
+    val: string;
+    checked: boolean;
+  }[];
   setValue: (
+    value: React.SetStateAction<
+      {
+        val: string;
+        checked: boolean;
+      }[]
+    >
+  ) => void;
+  setValue1: (
+    value: React.SetStateAction<
+      {
+        val: string;
+        checked: boolean;
+      }[]
+    >
+  ) => void;
+  setValue2: (
     value: React.SetStateAction<
       {
         val: string;
@@ -17,9 +41,20 @@ interface InfoTypes {
   mode?: string;
 }
 
-export const TodoInfo = ({ length, value, setValue, mode }: InfoTypes) => {
+export const TodoInfo = ({
+  length,
+  value,
+  setValue,
+  mode,
+  value1,
+  value2,
+  setValue1,
+  setValue2,
+}: InfoTypes) => {
   const handleRemove = () => {
     setValue(value.filter((i) => !i.checked));
+    setValue1(value1.filter((i) => !i.checked));
+    setValue2(value2.filter((i) => !i.checked));
   };
 
   return (

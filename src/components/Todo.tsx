@@ -66,6 +66,8 @@ const Todo = ({
 
   const handleFilter = (index: number) => {
     setValue(value.filter((_, i) => i !== index));
+    setValue1(value1.filter((_, i) => i !== index));
+    setValue2(value2.filter((_, i) => i !== index));
     setLength(value.length);
   };
 
@@ -99,7 +101,16 @@ const Todo = ({
           />
         </Div>
       ))}
-      <TodoInfo length={length} value={value} setValue={setValue} mode={mode} />
+      <TodoInfo
+        length={length}
+        value={value}
+        setValue={setValue}
+        mode={mode}
+        value1={value1}
+        value2={value2}
+        setValue1={setValue1}
+        setValue2={setValue2}
+      />
       <FilterTodo
         mode={mode}
         value={value}

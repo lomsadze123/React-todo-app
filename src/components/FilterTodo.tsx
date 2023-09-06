@@ -9,8 +9,8 @@ interface TodoTypeAdd extends TodoType {
 
 const FilterTodo = ({
   setValue,
+  value,
   value1,
-  value2,
   setLength,
   mode,
 }: TodoTypeAdd) => {
@@ -30,7 +30,7 @@ const FilterTodo = ({
   };
 
   const handleActive = () => {
-    setValue(value2.filter((i) => !i.checked));
+    setValue(value.filter((i) => !i.checked));
     setActiveColor("active");
   };
 
@@ -64,7 +64,10 @@ const Div = styled.div<{ backgroundColor: boolean }>`
   bottom: -6.5rem;
   background-color: ${(props) => (props.backgroundColor ? "#25273D" : "#fff")};
   padding: 1.5rem 8rem 1.9rem 8rem;
-  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  box-shadow: ${(props) =>
+    props.backgroundColor
+      ? "0px 35px 50px -15px rgba(0, 0, 0, 0.50);"
+      : "0px 35px 50px -15px rgba(194, 195, 214, 0.5)"};
   border-radius: 0.5rem;
   h2 {
     font-size: 1.4rem;
