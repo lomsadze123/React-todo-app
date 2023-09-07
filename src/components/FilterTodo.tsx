@@ -11,6 +11,7 @@ const FilterTodo = ({
   setValue,
   value,
   value1,
+  value2,
   setLength,
   mode,
 }: TodoTypeAdd) => {
@@ -30,7 +31,7 @@ const FilterTodo = ({
   };
 
   const handleActive = () => {
-    setValue(value.filter((i) => !i.checked));
+    setValue(value2.filter((i) => !i.checked));
     setActiveColor("active");
   };
 
