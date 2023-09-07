@@ -9,7 +9,6 @@ interface TodoTypeAdd extends TodoType {
 
 const FilterTodo = ({
   setValue,
-  value,
   value1,
   value2,
   setLength,
