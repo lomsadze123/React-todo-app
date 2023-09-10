@@ -150,6 +150,9 @@ const Div = styled.div<{ backgroundColor: boolean }>`
   p {
     font-size: 1.2rem;
     letter-spacing: -0.0167rem;
+    max-width: 23rem;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
   img {
     max-width: 1.2rem;
