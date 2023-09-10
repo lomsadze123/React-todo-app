@@ -147,13 +147,6 @@ const Div = styled.div<{ backgroundColor: boolean }>`
   div {
     gap: 1.2rem;
   }
-  p {
-    font-size: 1.2rem;
-    letter-spacing: -0.0167rem;
-    max-width: 23rem;
-    overflow-wrap: break-word;
-    white-space: normal;
-  }
   img {
     max-width: 1.2rem;
     width: 100%;
@@ -162,10 +155,6 @@ const Div = styled.div<{ backgroundColor: boolean }>`
 
   @media (min-width: 768px) {
     padding: 2rem 2.4rem;
-    p {
-      font-size: 1.8rem;
-      letter-spacing: -0.025rem;
-    }
     div {
       gap: 2.4rem;
     }
@@ -181,6 +170,11 @@ const Div = styled.div<{ backgroundColor: boolean }>`
 `;
 
 const P = styled.p<{ about: boolean; dark: boolean }>`
+  max-width: 23rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.0167rem;
+  overflow-wrap: break-word;
+  white-space: normal;
   color: ${(props) =>
     props.about
       ? props.dark
@@ -190,4 +184,10 @@ const P = styled.p<{ about: boolean; dark: boolean }>`
       ? "#C8CBE7"
       : "#4D5067"};
   text-decoration: ${(props) => (props.about ? "line-through" : "none")};
+
+  @media (min-width: 768px) {
+    max-width: 43rem;
+    font-size: 1.8rem;
+    letter-spacing: -0.025rem;
+  }
 `;
